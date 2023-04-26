@@ -1,0 +1,118 @@
+*,
+::before,
+::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --yellow: #dfb10e;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: #0d4235;
+}
+
+img {
+  width: 100%;
+}
+
+section {
+  padding: 2.5rem 0;
+}
+
+.flex {
+  display: flex;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.grid {
+  display: grid;
+}
+
+.container {
+  margin: auto;
+  max-width: 82rem;
+  padding: 0 2rem;
+}
+
+.heading span {
+  font-weight: 200;
+  font-size: 1.2rem;
+}
+.heading h2 {
+  font-weight: 600;
+  font-size: 1.7rem;
+  margin-top: 0.5rem;
+}
+
+.service .wrapper {
+  justify-content: center;
+  align-items: center;
+}
+.service .items {
+  gap: 3rem;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.service .item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 2rem;
+}
+.service .item img {
+  width: 8.5rem;
+}
+.service .img {
+  position: relative;
+}
+.service .img .line {
+  display: none;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 120%;
+}
+.service .img .line img {
+  width: 12.5rem;
+}
+.service .texts {
+  display: grid;
+  gap: 0.5rem;
+  text-align: center;
+}
+.service .texts h4 {
+  font-size: 1.5rem;
+  color: var(--yellow);
+}
+.service .texts .grayish {
+  color: #545454;
+}
+.service .texts p {
+  max-width: 22rem;
+  font-weight: 400;
+  font-size: 1.2rem;
+  color: #191927;
+}
+
+@media (min-width: 1280px) {
+  .service .item .img .line {
+    display: block;
+  }
+}/*# sourceMappingURL=style.css.map */
