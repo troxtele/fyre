@@ -18,6 +18,7 @@
 :root {
   --yellow: #dfb10e;
   --white: #ffffff;
+  --dark-gray: #545454;
 }
 
 body {
@@ -182,7 +183,36 @@ Eye Area
 ----------------------------------------------------*/
 
 .eye {
-  .wrapper  {
+  position: relative;
+  overflow: hidden;
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+  }
+
+  &::before {
+    background-color: var(--dark-gray);
+    width: 6rem;
+    right: 0;
+    height: 80%;
+  }
+  &::after {
+    background-color: var(--yellow);
+    top: 7rem;
+    right: -1rem;
+    width: 4rem;
+    height: 100%;
+  }
+  .rectangle {
+    width: calc(50% - 6rem);
+    height: 3rem;
+    background-color: var(--yellow);
+  }
+
+  .wrapper {
+    margin-top: 1rem;
     justify-content: space-between;
   }
 
@@ -192,7 +222,7 @@ Eye Area
     }
   }
   .right-content {
-
+    margin-right: 6rem;
     .items {
       gap: 2rem;
     }
@@ -209,6 +239,14 @@ Eye Area
       font-weight: 900;
       font-size: 1.1rem;
       max-width: 30rem;
+    }
+  }
+
+  .boxs {
+    .box-1 {
+      width: 4rem;
+      height: 20rem;
+      background-color: #191927;
     }
   }
 }

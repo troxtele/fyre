@@ -17,6 +17,7 @@
 :root {
   --yellow: #dfb10e;
   --white: #ffffff;
+  --dark-gray: #545454;
 }
 
 body {
@@ -158,11 +159,41 @@ Mission Area
 /*---------------------------------------------------- 
 Eye Area
 ----------------------------------------------------*/
+.eye {
+  position: relative;
+  overflow: hidden;
+}
+.eye::before, .eye::after {
+  content: "";
+  position: absolute;
+}
+.eye::before {
+  background-color: var(--dark-gray);
+  width: 6rem;
+  right: 0;
+  height: 80%;
+}
+.eye::after {
+  background-color: var(--yellow);
+  top: 7rem;
+  right: -1rem;
+  width: 4rem;
+  height: 100%;
+}
+.eye .rectangle {
+  width: calc(50% - 6rem);
+  height: 3rem;
+  background-color: var(--yellow);
+}
 .eye .wrapper {
+  margin-top: 1rem;
   justify-content: space-between;
 }
 .eye .left-content img {
   max-width: 20rem;
+}
+.eye .right-content {
+  margin-right: 6rem;
 }
 .eye .right-content .items {
   gap: 2rem;
@@ -177,4 +208,9 @@ Eye Area
   font-weight: 900;
   font-size: 1.1rem;
   max-width: 30rem;
+}
+.eye .boxs .box-1 {
+  width: 4rem;
+  height: 20rem;
+  background-color: #191927;
 }/*# sourceMappingURL=style.css.map */
