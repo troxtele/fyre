@@ -16,8 +16,12 @@
 
 :root {
   --yellow: #dfb10e;
+  --light-yellow: #dfb20e75;
   --white: #ffffff;
   --dark-gray: #545454;
+  --light-gray: #d9d9d9;
+  --main-font: "Garet";
+  --main-font-bold: "Garet Bold";
 }
 
 body {
@@ -42,6 +46,10 @@ section {
   display: flex;
 }
 
+.flex-col {
+  flex-direction: column;
+}
+
 .justify-center {
   justify-content: center;
 }
@@ -58,6 +66,11 @@ section {
   margin: auto;
   max-width: 82rem;
   padding: 0 2rem;
+}
+
+p {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 400;
 }
 
 .heading span {
@@ -122,11 +135,70 @@ section {
   color: #191927;
 }
 
-@media (min-width: 1280px) {
-  .service .item .img .line {
-    display: block;
-  }
+/*---------------------------------------------------- 
+Main Area
+----------------------------------------------------*/
+main {
+  background-color: var(--light-gray);
+  padding-bottom: 2rem;
 }
+main::before {
+  content: "";
+  position: absolute;
+  bottom: 2rem;
+  background-color: var(--light-yellow);
+  width: 15rem;
+  height: 8rem;
+  border-top-left-radius: 20px;
+  right: 0;
+  top: 4rem;
+}
+main .wrapper {
+  gap: 4rem;
+}
+main .left-content .img {
+  position: relative;
+}
+main .left-content .img img {
+  position: inherit;
+}
+main .left-content .img::before {
+  content: "";
+  position: absolute;
+  bottom: 2rem;
+  background-color: var(--yellow);
+  width: 15rem;
+  height: 30rem;
+}
+main .right-content {
+  margin-right: 39px;
+  position: relative;
+  padding-top: 2rem;
+}
+main .right-content .content {
+  position: relative;
+}
+main .right-content .main-logo img {
+  width: 13rem;
+}
+main .right-content p {
+  margin-top: 1rem;
+  font-size: 1.4rem;
+  font-weight: 400;
+}
+main .right-content h1 {
+  margin-top: 1rem;
+  margin-left: -7rem;
+  font-size: 5rem;
+  font-family: "Garet Bold";
+  font-weight: bold;
+  text-transform: uppercase;
+  color: var(--yellow);
+}
+main .right-content h1 span {
+  color: var(--dark-gray);
+}
+
 /*---------------------------------------------------- 
 Mission Area
 ----------------------------------------------------*/
@@ -143,7 +215,7 @@ Mission Area
 .mission .left-content h2 {
   font-family: "Garet Bold";
   font-size: 2rem;
-  font-weight: bolder;
+  font-weight: bold;
 }
 .mission .left-content p {
   font-family: "Open Sans", sans-serif;
@@ -154,6 +226,74 @@ Mission Area
 }
 .mission .right-content img {
   max-width: 20rem;
+}
+
+/*---------------------------------------------------- 
+Social Area
+----------------------------------------------------*/
+.social .wrapper {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2rem;
+}
+.social .left-content {
+  gap: 2.5rem;
+}
+.social .left-content h2 {
+  color: var(--dark-gray);
+  font-size: 2.2rem;
+}
+.social .left-content h3 {
+  color: var(--yellow);
+  font-size: 2.2rem;
+}
+.social .left-content p {
+  margin-top: 1rem;
+  font-size: 1.2rem;
+}
+.social .left-content .left-top p {
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--dark-gray);
+}
+.social .right-content .img {
+  display: flex;
+  justify-content: flex-end;
+}
+/*---------------------------------------------------- 
+Phone Area
+----------------------------------------------------*/
+.phone {
+  overflow: hidden;
+}
+.phone .wrapper {
+  gap: 2rem;
+}
+.phone .left {
+  position: relative;
+  width: 8rem;
+}
+.phone .left::after {
+  content: "";
+  position: absolute;
+  height: 15rem;
+  width: 8rem;
+  background-color: var(--light-yellow);
+  border-top-right-radius: 20px;
+  bottom: 0;
+}
+.phone p {
+  color: var(--dark-gray);
+  font-size: 1.4rem;
+  font-weight: 600;
+  max-width: 50rem;
+}
+.phone img {
+  width: 20rem;
+  margin-left: -2rem;
+}
+.phone .phone-content h4 {
+  text-transform: uppercase;
+  color: var(--yellow);
 }
 
 /*---------------------------------------------------- 
@@ -187,7 +327,7 @@ Eye Area
 }
 .eye .wrapper {
   margin-top: 1rem;
-  justify-content: space-between;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 .eye .left-content img {
   max-width: 20rem;
@@ -196,7 +336,7 @@ Eye Area
   margin-right: 6rem;
 }
 .eye .right-content .items {
-  gap: 2rem;
+  gap: 1rem;
 }
 .eye .right-content .item {
   gap: 2rem;
@@ -213,4 +353,10 @@ Eye Area
   width: 4rem;
   height: 20rem;
   background-color: #191927;
+}
+
+@media (min-width: 1280px) {
+  .service .item .img .line {
+    display: block;
+  }
 }/*# sourceMappingURL=style.css.map */

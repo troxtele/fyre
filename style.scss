@@ -17,8 +17,12 @@
 
 :root {
   --yellow: #dfb10e;
+  --light-yellow: #dfb20e75;
   --white: #ffffff;
   --dark-gray: #545454;
+  --light-gray: #d9d9d9;
+  --main-font: "Garet";
+  --main-font-bold: "Garet Bold";
 }
 
 body {
@@ -41,6 +45,9 @@ section {
 .flex {
   display: flex;
 }
+.flex-col {
+  flex-direction: column;
+}
 
 .justify-center {
   justify-content: center;
@@ -60,6 +67,10 @@ section {
   padding: 0 2rem;
 }
 
+p {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 400;
+}
 .heading {
   span {
     font-weight: 200;
@@ -131,13 +142,75 @@ section {
   }
 }
 
-@media (min-width: 1280px) {
-  .service {
-    .item {
-      .img {
-        .line {
-          display: block;
-        }
+/*---------------------------------------------------- 
+Main Area
+----------------------------------------------------*/
+main {
+  background-color: var(--light-gray);
+  padding-bottom: 2rem;
+
+  &::before {
+    content: "";
+    position: absolute;
+    bottom: 2rem;
+    background-color: var(--light-yellow);
+    width: 15rem;
+    height: 8rem;
+    border-top-left-radius: 20px;
+    right: 0;
+    top: 4rem;
+  }
+
+  .wrapper {
+    gap: 4rem;
+  }
+
+  .left-content {
+    .img {
+      position: relative;
+
+      img {
+        position: inherit;
+      }
+      &::before {
+        content: "";
+        position: absolute;
+        bottom: 2rem;
+        background-color: var(--yellow);
+        width: 15rem;
+        height: 30rem;
+      }
+    }
+  }
+  .right-content {
+    margin-right: 39px;
+    position: relative;
+    padding-top: 2rem;
+
+    .content {
+      position: relative;
+    }
+
+    .main-logo {
+      img {
+        width: 13rem;
+      }
+    }
+    p {
+      margin-top: 1rem;
+      font-size: 1.4rem;
+      font-weight: 400;
+    }
+    h1 {
+      margin-top: 1rem;
+      margin-left: -7rem;
+      font-size: 5rem;
+      font-family: "Garet Bold";
+      font-weight: bold;
+      text-transform: uppercase;
+      color: var(--yellow);
+      span {
+        color: var(--dark-gray);
       }
     }
   }
@@ -146,7 +219,6 @@ section {
 /*---------------------------------------------------- 
 Mission Area
 ----------------------------------------------------*/
-
 .mission {
   .wrapper {
     grid-template-columns: repeat(7, minmax(0, 1fr));
@@ -162,7 +234,7 @@ Mission Area
     h2 {
       font-family: "Garet Bold";
       font-size: 2rem;
-      font-weight: bolder;
+      font-weight: bold;
     }
 
     p {
@@ -179,9 +251,95 @@ Mission Area
 }
 
 /*---------------------------------------------------- 
+Social Area
+----------------------------------------------------*/
+.social {
+  .wrapper {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2rem;
+  }
+
+  .left-content {
+    gap: 2.5rem;
+    h2 {
+      color: var(--dark-gray);
+      font-size: 2.2rem;
+    }
+    h3 {
+      color: var(--yellow);
+      font-size: 2.2rem;
+    }
+    p {
+      margin-top: 1rem;
+      font-size: 1.2rem;
+    }
+    .left-top {
+      p {
+        text-transform: uppercase;
+        font-weight: 700;
+        color: var(--dark-gray);
+      }
+    }
+
+    .left-bottom {
+    }
+  }
+
+  .right-content {
+    .img {
+      display: flex;
+      justify-content: flex-end;
+
+      img {
+      }
+    }
+  }
+}
+
+/*---------------------------------------------------- 
+Phone Area
+----------------------------------------------------*/
+.phone {
+  overflow: hidden;
+  .wrapper {
+    gap: 2rem;
+  }
+  .left {
+    position: relative;
+    width: 8rem;
+
+    &::after {
+      content: "";
+      position: absolute;
+      height: 15rem;
+      width: 8rem;
+      background-color: var(--light-yellow);
+      border-top-right-radius: 20px;
+      bottom: 0;
+    }
+  }
+  p {
+    color: var(--dark-gray);
+    font-size: 1.4rem;
+    font-weight: 600;
+    max-width: 50rem;
+  }
+
+  img {
+    width: 20rem;
+    margin-left: -2rem;
+  }
+
+  .phone-content {
+    h4 {
+      text-transform: uppercase;
+      color: var(--yellow);
+    }
+  }
+}
+/*---------------------------------------------------- 
 Eye Area
 ----------------------------------------------------*/
-
 .eye {
   position: relative;
   overflow: hidden;
@@ -213,7 +371,7 @@ Eye Area
 
   .wrapper {
     margin-top: 1rem;
-    justify-content: space-between;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .left-content {
@@ -224,7 +382,7 @@ Eye Area
   .right-content {
     margin-right: 6rem;
     .items {
-      gap: 2rem;
+      gap: 1rem;
     }
     .item {
       gap: 2rem;
@@ -251,6 +409,17 @@ Eye Area
   }
 }
 
+@media (min-width: 1280px) {
+  .service {
+    .item {
+      .img {
+        .line {
+          display: block;
+        }
+      }
+    }
+  }
+}
 @media (min-width: 1024px) {
 }
 @media (min-width: 1024px) {
