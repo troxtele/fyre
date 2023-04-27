@@ -1,3 +1,12 @@
+@font-face {
+  font-family: "Garet";
+  src: url("./fonts/Garet-Book.otf") format("opentype");
+}
+@font-face {
+  font-family: "Garet Bold";
+  src: url("./fonts/Garet-Heavy.otf") format("opentype");
+}
+
 *,
 ::before,
 ::after {
@@ -8,18 +17,20 @@
 
 :root {
   --yellow: #dfb10e;
-}
-body {
-  font-family: "Montserrat", sans-serif;
+  --white: #ffffff;
 }
 
+body {
+  font-family: "Garet", sans-serif;
+  background-color: var(--white);
+}
 a {
   text-decoration: none;
   color: #0d4235;
 }
 
 img {
-  width: 100%;
+  max-width: 30rem;
 }
 
 section {
@@ -120,7 +131,6 @@ section {
 }
 
 @media (min-width: 1280px) {
-
   .service {
     .item {
       .img {
@@ -130,4 +140,86 @@ section {
       }
     }
   }
+}
+
+/*---------------------------------------------------- 
+Mission Area
+----------------------------------------------------*/
+
+.mission {
+  .wrapper {
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+    justify-content: center;
+    align-items: center;
+    gap: 4rem;
+  }
+
+  .left-content {
+    grid-column: span 4 / span 4;
+    gap: 1rem;
+
+    h2 {
+      font-family: "Garet Bold";
+      font-size: 2rem;
+      font-weight: bolder;
+    }
+
+    p {
+      font-family: "Open Sans", sans-serif;
+      font-weight: 400;
+    }
+  }
+  .right-content {
+    grid-column: span 3 / span 3;
+    img {
+      max-width: 20rem;
+    }
+  }
+}
+
+/*---------------------------------------------------- 
+Eye Area
+----------------------------------------------------*/
+
+.eye {
+  .wrapper  {
+    justify-content: space-between;
+  }
+
+  .left-content {
+    img {
+      max-width: 20rem;
+    }
+  }
+  .right-content {
+
+    .items {
+      gap: 2rem;
+    }
+    .item {
+      gap: 2rem;
+    }
+
+    .img {
+      img {
+        max-width: 3.5rem;
+      }
+    }
+    p {
+      font-weight: 900;
+      font-size: 1.1rem;
+      max-width: 30rem;
+    }
+  }
+}
+
+@media (min-width: 1024px) {
+}
+@media (min-width: 1024px) {
+}
+@media (min-width: 1024px) {
+}
+@media (min-width: 1024px) {
+}
+@media (min-width: 1024px) {
 }

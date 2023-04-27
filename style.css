@@ -1,3 +1,11 @@
+@font-face {
+  font-family: "Garet";
+  src: url("./fonts/Garet-Book.otf") format("opentype");
+}
+@font-face {
+  font-family: "Garet Bold";
+  src: url("./fonts/Garet-Heavy.otf") format("opentype");
+}
 *,
 ::before,
 ::after {
@@ -8,10 +16,12 @@
 
 :root {
   --yellow: #dfb10e;
+  --white: #ffffff;
 }
 
 body {
-  font-family: "Montserrat", sans-serif;
+  font-family: "Garet", sans-serif;
+  background-color: var(--white);
 }
 
 a {
@@ -20,7 +30,7 @@ a {
 }
 
 img {
-  width: 100%;
+  max-width: 30rem;
 }
 
 section {
@@ -115,4 +125,56 @@ section {
   .service .item .img .line {
     display: block;
   }
+}
+/*---------------------------------------------------- 
+Mission Area
+----------------------------------------------------*/
+.mission .wrapper {
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  justify-content: center;
+  align-items: center;
+  gap: 4rem;
+}
+.mission .left-content {
+  grid-column: span 4/span 4;
+  gap: 1rem;
+}
+.mission .left-content h2 {
+  font-family: "Garet Bold";
+  font-size: 2rem;
+  font-weight: bolder;
+}
+.mission .left-content p {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 400;
+}
+.mission .right-content {
+  grid-column: span 3/span 3;
+}
+.mission .right-content img {
+  max-width: 20rem;
+}
+
+/*---------------------------------------------------- 
+Eye Area
+----------------------------------------------------*/
+.eye .wrapper {
+  justify-content: space-between;
+}
+.eye .left-content img {
+  max-width: 20rem;
+}
+.eye .right-content .items {
+  gap: 2rem;
+}
+.eye .right-content .item {
+  gap: 2rem;
+}
+.eye .right-content .img img {
+  max-width: 3.5rem;
+}
+.eye .right-content p {
+  font-weight: 900;
+  font-size: 1.1rem;
+  max-width: 30rem;
 }/*# sourceMappingURL=style.css.map */
