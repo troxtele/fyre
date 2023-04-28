@@ -1,12 +1,3 @@
-// @font-face {
-//   font-family: "Garet";
-//   src: url("./fonts/Garet-Book.otf") format("opentype");
-// }
-// @font-face {
-//   font-family: "Garet Bold";
-//   src: url("./fonts/Garet-Heavy.otf") format("opentype");
-// }
-
 *,
 ::before,
 ::after {
@@ -73,7 +64,10 @@ section {
 p {
   font-family: "Open Sans", sans-serif;
   font-weight: 400;
+  font-size: 1.1rem;
+  color: var(--dark-gray);
 }
+
 .heading {
   span {
     font-weight: 200;
@@ -90,10 +84,8 @@ p {
 Main Area
 ----------------------------------------------------*/
 main {
-  background-color: var(--light-gray);
-
   position: relative;
-
+  height: 500px;
   &::before {
     display: none;
   }
@@ -122,6 +114,7 @@ main {
       }
     }
   }
+
   .right-content {
     display: none;
   }
@@ -138,6 +131,20 @@ main {
     border-bottom-right-radius: 10px;
     padding-top: 2rem;
 
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      background-color: var(--yellow);
+      opacity: 0.5;
+      width: 100%;
+      left: 0;
+      bottom: -30px;
+      height: 10rem;
+      border-radius: 50px 0 0 0;
+      z-index: -1;
+    }
+
     img {
       width: 10rem;
     }
@@ -147,13 +154,16 @@ main {
         margin-top: 1rem;
         color: var(--yellow);
         font-weight: 900;
-        font-size: 2.5rem;
+        font-size: 2.7rem;
         text-transform: uppercase;
       }
     }
 
     p {
       margin-top: 1rem;
+      font-size: 1.1rem;
+      font-weight: 400;
+      color: var(--white);
     }
   }
 }
@@ -162,6 +172,7 @@ Service Area
 ----------------------------------------------------*/
 .service {
   overflow: hidden;
+  margin-top: 2rem;
 
   .wrapper {
     justify-content: center;
@@ -276,6 +287,7 @@ Mission Area
 
     img {
       width: 100%;
+      max-width: 12rem;
     }
   }
 }
@@ -284,7 +296,7 @@ Mission Area
 Social Area
 ----------------------------------------------------*/
 .social {
-  // overflow: visible;
+  overflow: visible;
   .wrapper {
     display: none;
     grid-template-columns: repeat(7, minmax(0, 1fr));
@@ -306,6 +318,7 @@ Social Area
     p {
       margin-top: 1rem;
       font-size: 1.2rem;
+      color: var(--dark-gray);
     }
     .left-top {
       p {
@@ -324,7 +337,7 @@ Social Area
         background-color: var(--mid-gray);
         width: 70%;
         height: 100%;
-        left: 0;
+        left: -20px;
         top: 1.3rem;
         z-index: -10;
       }
@@ -340,7 +353,7 @@ Social Area
         content: "";
         position: absolute;
         bottom: 2rem;
-        background-color: var(--light-gray);
+        background-color: var(--mid-gray);
         width: 30rem;
         height: 20rem;
         clip-path: polygon(0 1%, 100% 0, 100% 100%, 44% 100%);
@@ -383,21 +396,23 @@ Social Area
     .middle {
       display: flex;
       justify-content: flex-end;
-      position: relative;
 
-      &::before {
-        content: "";
-        position: absolute;
-        bottom: 2rem;
-        background-color:var(--light-yellow);
-        width: 12rem;
-        height: 15rem;
-        clip-path: polygon(12% 0, 0% 100%, 100% 45%);
+      .img-wrapper {
+        position: relative;
+        &::before {
+          content: "";
+          position: absolute;
+          bottom: 2rem;
+          background-color: var(--light-yellow);
+          width: 15rem;
+          height: 15rem;
+          clip-path: polygon(12% 0, 0% 100%, 100% 45%);
 
-        right: 0;
-        top: 0;
-        left: 0;
-        z-index: -10;
+          right: 0;
+          top: 0;
+          left: 0;
+          z-index: -10;
+        }
       }
 
       img {
@@ -422,8 +437,9 @@ Phone Area
 
     .left {
       position: relative;
-      width: 8rem;
+      max-width: 8rem;
 
+      width: 100%;
       &::after {
         content: "";
         position: absolute;
@@ -450,6 +466,8 @@ Phone Area
 
     .phone-content {
       position: relative;
+      align-items: flex-end;
+
       h4 {
         text-transform: uppercase;
         color: var(--yellow);
@@ -458,9 +476,9 @@ Phone Area
         padding: 0.5rem 4rem 0.5rem 0.5rem;
         border-radius: 15px;
         bottom: 2rem;
-        font-size: 2rem;
-        max-width: 35rem;
-        left: -400px;
+        font-size: 1.8rem;
+        max-width: 30rem;
+        left: -350px;
       }
     }
   }
@@ -505,10 +523,16 @@ Phone Area
         padding: 1rem;
         border-radius: 15px;
         bottom: 2rem;
-        font-size: 1rem;
+        font-size: 1.05rem;
         max-width: 35rem;
         margin-bottom: 2rem;
       }
+    }
+
+    p {
+      font-size: 1.1rem;
+      font-weight: 400;
+      color: var(--dark-gray);
     }
   }
 }
@@ -555,7 +579,7 @@ Presentation Area
       p {
         color: var(--dark-gray);
         font-weight: 500;
-        font-size: 0.9rem;
+        font-size: 1rem;
       }
     }
   }
@@ -594,13 +618,14 @@ Presentation Area
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+
+    img {
+      width: 100%;
+      max-width: 12rem;
+    }
+
     .top-content {
       gap: 2rem;
-
-      img {
-        width: 100%;
-        max-width: 10rem;
-      }
 
       h2 {
         font-size: 2rem;
@@ -637,7 +662,7 @@ Eye Area
   .left-content {
     position: relative;
     img {
-      max-width: 20rem;
+      max-width: 14rem;
       width: 100%;
       padding-right: 2.5rem;
     }
@@ -663,6 +688,7 @@ Eye Area
       height: 80%;
     }
   }
+
   .right-content {
     .items {
       gap: 1rem;
@@ -693,6 +719,23 @@ Eye Area
 }
 
 @media (min-width: 400px) {
+  main {
+    height: 100%;
+    .overflow-content {
+      img {
+        width: 11rem;
+      }
+      p {
+        font-size: 1.3rem;
+      }
+
+      .title {
+        h1 {
+          font-size: 3.5rem;
+        }
+      }
+    }
+  }
   .presentation {
     .mobile {
       img {
@@ -708,8 +751,43 @@ Eye Area
       }
     }
   }
+  .phone {
+    .mobile {
+      .phone-content {
+        h4 {
+          font-size: 1.4rem;
+        }
+      }
+    }
+  }
 }
 @media (min-width: 640px) {
+  .overflow-content {
+    &::after {
+      display: none;
+    }
+  }
+  main {
+    height: 100%;
+    .overflow-content {
+      img {
+        width: 12rem;
+      }
+      p {
+        font-size: 1.4rem;
+      }
+
+      .title {
+        h1 {
+          font-size: 4rem;
+        }
+      }
+    }
+  }
+
+  .service {
+    margin-top: 0;
+  }
   .mission {
     .right-content {
       h2 {
@@ -728,6 +806,7 @@ Main Area
   main {
     background-color: var(--light-gray);
     padding-bottom: 2rem;
+    height: 100%;
 
     &::before {
       display: block;
@@ -755,13 +834,15 @@ Main Area
         img {
           position: inherit;
         }
+
         &::before {
           content: "";
           position: absolute;
           bottom: 2rem;
           background-color: var(--yellow);
-          width: 15rem;
-          height: 30rem;
+          width: 12rem;
+          left: 0;
+          height: 20rem;
         }
       }
     }
@@ -782,14 +863,14 @@ Main Area
       }
       p {
         margin-top: 1rem;
-        font-size: 1.4rem;
+        font-size: 1.7rem;
         font-weight: 400;
       }
       h1 {
         margin-top: 1rem;
         margin-left: -7rem;
         font-size: 5rem;
-        font-weight: 500;
+        font-weight: 800;
         text-transform: uppercase;
         color: var(--yellow);
         span {
@@ -835,10 +916,27 @@ Social Area
     .wrapper {
       display: grid;
     }
+
+    .mobile {
+      display: none;
+    }
   }
   /*---------------------------------------------------- 
-Mission Area
+Phone Area
 ----------------------------------------------------*/
+  .phone {
+    .wrapper {
+      display: flex;
+    }
+
+    .mobile {
+      display: none;
+    }
+
+    .phone-content {
+      margin-top: 6rem;
+    }
+  }
   .mission {
     .wrapper {
       display: grid;
@@ -879,7 +977,6 @@ Mission Area
   /*---------------------------------------------------- 
 Presentation Area
 ----------------------------------------------------*/
-
   .presentation {
     .wrapper {
       display: grid;
@@ -925,7 +1022,6 @@ Eye Area
       margin-top: 1rem;
       grid-template-columns: repeat(2, minmax(0, 1fr));
     }
-
     .left-content {
       &::before,
       &::after {
@@ -965,6 +1061,13 @@ Eye Area
     }
   }
 }
+@media (min-width: 1024px) {
+  .phone {
+    .phone-content {
+      margin-top: 0;
+    }
+  }
+}
 
 @media (min-width: 1280px) {
   .service {
@@ -978,7 +1081,5 @@ Eye Area
   }
 }
 
-@media (min-width: 1024px) {
-}
 @media (min-width: 1024px) {
 }
