@@ -338,6 +338,81 @@ Phone Area
   }
 }
 /*---------------------------------------------------- 
+Presentation Area
+----------------------------------------------------*/
+.presentation {
+  .wrapper {
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+    gap: 2rem;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .left-content {
+    grid-column: span 2 / span 2;
+    img {
+      max-width: 100%;
+    }
+
+    p {
+      margin-top: 1rem;
+      color: var(--dark-gray);
+      font-weight: 600;
+      font-size: 1.4rem;
+      text-align: center;
+    }
+  }
+  .right-content {
+    grid-column: span 5 / span 5;
+    background-image: url("./images/section-bg.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    .texts {
+      padding: 3rem;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      justify-content: center;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    .paras {
+      gap: 1rem;
+    }
+    .para {
+      gap: 0.3rem;
+
+      h3 {
+        color: var(--yellow);
+        font-size: 2rem;
+      }
+
+      h4 {
+        color: var(--dark-gray);
+        font-size: 2rem;
+        text-transform: uppercase;
+      }
+
+      p {
+        color: var(--dark-gray);
+        font-weight: 500;
+        font-size: 0.9rem;
+      }
+    }
+
+    h2 {
+      text-transform: uppercase;
+      font-size: 4rem;
+      font-weight: bold;
+      color: var(--dark-gray);
+
+      span {
+        color: var(--yellow);
+      }
+    }
+  }
+}
+/*---------------------------------------------------- 
 Eye Area
 ----------------------------------------------------*/
 .eye {
