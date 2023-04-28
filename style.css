@@ -1,11 +1,3 @@
-@font-face {
-  font-family: "Garet";
-  src: url("./fonts/Garet-Book.otf") format("opentype");
-}
-@font-face {
-  font-family: "Garet Bold";
-  src: url("./fonts/Garet-Heavy.otf") format("opentype");
-}
 *,
 ::before,
 ::after {
@@ -19,13 +11,14 @@
   --light-yellow: #dfb20e75;
   --white: #ffffff;
   --dark-gray: #545454;
+  --mid-gray: #9c9c9c;
   --light-gray: #d9d9d9;
   --main-font: "Garet";
   --main-font-bold: "Garet Bold";
 }
 
 body {
-  font-family: "Garet", sans-serif;
+  font-family: "Roboto", sans-serif;
   background-color: var(--white);
 }
 
@@ -40,6 +33,7 @@ img {
 
 section {
   padding: 2.5rem 0;
+  overflow: hidden;
 }
 
 .flex {
@@ -65,7 +59,7 @@ section {
 .container {
   margin: auto;
   max-width: 82rem;
-  padding: 0 2rem;
+  padding: 0 1.5rem;
 }
 
 p {
@@ -83,6 +77,71 @@ p {
   margin-top: 0.5rem;
 }
 
+/*---------------------------------------------------- 
+Main Area
+----------------------------------------------------*/
+main {
+  background-color: var(--light-gray);
+  position: relative;
+}
+main::before {
+  display: none;
+}
+main .wrapper {
+  display: block;
+}
+main .left-content .img {
+  position: relative;
+}
+main .left-content .img img {
+  position: inherit;
+  min-width: 100%;
+  width: 100%;
+}
+main .left-content .img::before {
+  content: "";
+  position: absolute;
+  bottom: 2rem;
+  background-color: var(--yellow);
+  width: 8rem;
+  left: 20%;
+  height: 30rem;
+}
+main .right-content {
+  display: none;
+}
+main .overflow-content {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(84, 84, 84, 0.5333333333);
+  color: var(--white);
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  padding-top: 2rem;
+}
+main .overflow-content img {
+  width: 10rem;
+}
+main .overflow-content .title h1 {
+  margin-top: 1rem;
+  color: var(--yellow);
+  font-weight: 900;
+  font-size: 2.5rem;
+  text-transform: uppercase;
+}
+main .overflow-content p {
+  margin-top: 1rem;
+}
+
+/*---------------------------------------------------- 
+Service Area
+----------------------------------------------------*/
+.service {
+  overflow: hidden;
+}
 .service .wrapper {
   justify-content: center;
   align-items: center;
@@ -101,10 +160,14 @@ p {
   gap: 2rem;
 }
 .service .item img {
-  width: 8.5rem;
+  width: 7rem;
 }
 .service .img {
   position: relative;
+  width: 9rem;
+  height: 9rem;
+  border-radius: 50%;
+  background-color: rgba(84, 84, 84, 0.2);
 }
 .service .img .line {
   display: none;
@@ -115,6 +178,23 @@ p {
 }
 .service .img .line img {
   width: 12.5rem;
+}
+.service .service-2 {
+  position: relative;
+  background-color: var(--light-yellow);
+}
+.service .service-2::before {
+  content: "";
+  position: absolute;
+  bottom: 2rem;
+  background-color: var(--light-yellow);
+  transform: rotate(46deg);
+  width: 11rem;
+  height: 51rem;
+  right: -19rem;
+  top: -37rem;
+  z-index: -10;
+  border-bottom-left-radius: 30px;
 }
 .service .texts {
   display: grid;
@@ -136,106 +216,48 @@ p {
 }
 
 /*---------------------------------------------------- 
-Main Area
-----------------------------------------------------*/
-main {
-  background-color: var(--light-gray);
-  padding-bottom: 2rem;
-}
-main::before {
-  content: "";
-  position: absolute;
-  bottom: 2rem;
-  background-color: var(--light-yellow);
-  width: 15rem;
-  height: 8rem;
-  border-top-left-radius: 20px;
-  right: 0;
-  top: 4rem;
-}
-main .wrapper {
-  gap: 4rem;
-}
-main .left-content .img {
-  position: relative;
-}
-main .left-content .img img {
-  position: inherit;
-}
-main .left-content .img::before {
-  content: "";
-  position: absolute;
-  bottom: 2rem;
-  background-color: var(--yellow);
-  width: 15rem;
-  height: 30rem;
-}
-main .right-content {
-  margin-right: 39px;
-  position: relative;
-  padding-top: 2rem;
-}
-main .right-content .content {
-  position: relative;
-}
-main .right-content .main-logo img {
-  width: 13rem;
-}
-main .right-content p {
-  margin-top: 1rem;
-  font-size: 1.4rem;
-  font-weight: 400;
-}
-main .right-content h1 {
-  margin-top: 1rem;
-  margin-left: -7rem;
-  font-size: 5rem;
-  font-family: "Garet Bold";
-  font-weight: bold;
-  text-transform: uppercase;
-  color: var(--yellow);
-}
-main .right-content h1 span {
-  color: var(--dark-gray);
-}
-
-/*---------------------------------------------------- 
 Mission Area
 ----------------------------------------------------*/
 .mission .wrapper {
-  grid-template-columns: repeat(7, minmax(0, 1fr));
-  justify-content: center;
-  align-items: center;
-  gap: 4rem;
-}
-.mission .left-content {
-  grid-column: span 4/span 4;
-  gap: 1rem;
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 2rem;
 }
 .mission .left-content h2 {
-  font-family: "Garet Bold";
-  font-size: 2rem;
-  font-weight: bold;
-}
-.mission .left-content p {
-  font-family: "Open Sans", sans-serif;
-  font-weight: 400;
+  display: none;
 }
 .mission .right-content {
-  grid-column: span 3/span 3;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2rem;
+  justify-content: center;
+  align-items: center;
+}
+.mission .right-content h2 {
+  color: var(--dark-gray);
+  font-size: 2.2rem;
+  font-weight: 900;
+  font-family: "Roboto";
+}
+.mission .right-content h2 span {
+  font-weight: inherit;
+  font-size: inherit;
+  color: var(--yellow);
 }
 .mission .right-content img {
-  max-width: 20rem;
+  width: 100%;
 }
 
 /*---------------------------------------------------- 
 Social Area
 ----------------------------------------------------*/
 .social .wrapper {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 2rem;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 4rem;
+  align-items: center;
 }
 .social .left-content {
+  grid-column: span 3/span 3;
   gap: 2.5rem;
 }
 .social .left-content h2 {
@@ -255,10 +277,58 @@ Social Area
   font-weight: 700;
   color: var(--dark-gray);
 }
-.social .right-content .img {
-  display: flex;
-  justify-content: flex-end;
+.social .left-content .left-bottom {
+  position: relative;
 }
+.social .left-content .left-bottom::before {
+  content: "";
+  position: absolute;
+  bottom: 2rem;
+  background-color: var(--mid-gray);
+  width: 70%;
+  height: 100%;
+  left: 0;
+  top: 1.3rem;
+  z-index: -10;
+}
+.social .right-content {
+  grid-column: span 4/span 4;
+}
+.social .right-content .img {
+  position: relative;
+}
+.social .right-content .img::before {
+  content: "";
+  position: absolute;
+  bottom: 2rem;
+  background-color: var(--light-gray);
+  width: 30rem;
+  height: 20rem;
+  -webkit-clip-path: polygon(0 1%, 100% 0, 100% 100%, 44% 100%);
+          clip-path: polygon(0 1%, 100% 0, 100% 100%, 44% 100%);
+  right: 0;
+  top: -5rem;
+  border-radius: 5px;
+}
+.social .right-content .img::after {
+  content: "";
+  position: absolute;
+  bottom: 2rem;
+  background-color: var(--yellow);
+  width: 30rem;
+  height: 20rem;
+  -webkit-clip-path: polygon(100% 0, 0 23%, 79% 100%);
+          clip-path: polygon(100% 0, 0 23%, 79% 100%);
+  right: 0;
+  bottom: -15rem;
+  border-radius: 5px;
+  z-index: -10;
+}
+.social .right-content img {
+  position: relative;
+  min-width: 100%;
+}
+
 /*---------------------------------------------------- 
 Phone Area
 ----------------------------------------------------*/
@@ -287,13 +357,27 @@ Phone Area
   font-weight: 600;
   max-width: 50rem;
 }
+.phone .img {
+  position: relative;
+}
 .phone img {
-  width: 20rem;
-  margin-left: -2rem;
+  width: 16rem;
+  margin-left: 0rem;
+}
+.phone .phone-content {
+  position: relative;
 }
 .phone .phone-content h4 {
   text-transform: uppercase;
   color: var(--yellow);
+  position: absolute;
+  background-color: var(--dark-gray);
+  padding: 0.5rem 4rem 0.5rem 0.5rem;
+  border-radius: 15px;
+  bottom: 2rem;
+  font-size: 2rem;
+  max-width: 35rem;
+  left: -400px;
 }
 
 /*---------------------------------------------------- 
@@ -306,6 +390,7 @@ Presentation Area
   justify-content: center;
 }
 .presentation .left-content {
+  display: none;
   grid-column: span 2/span 2;
 }
 .presentation .left-content img {
@@ -327,12 +412,13 @@ Presentation Area
 }
 .presentation .right-content .texts {
   padding: 3rem;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(7, minmax(0, 1fr));
   justify-content: center;
   align-items: center;
   gap: 2rem;
 }
 .presentation .right-content .paras {
+  grid-column: span 4/span 4;
   gap: 1rem;
 }
 .presentation .right-content .para {
@@ -353,8 +439,9 @@ Presentation Area
   font-size: 0.9rem;
 }
 .presentation .right-content h2 {
+  grid-column: span 3/span 3;
   text-transform: uppercase;
-  font-size: 4rem;
+  font-size: 3.5rem;
   font-weight: bold;
   color: var(--dark-gray);
 }
@@ -365,9 +452,202 @@ Presentation Area
 /*---------------------------------------------------- 
 Eye Area
 ----------------------------------------------------*/
+.eye .rectangle {
+  display: none;
+}
+.eye .wrapper {
+  gap: 4rem;
+}
+.eye .left-content {
+  position: relative;
+}
+.eye .left-content img {
+  max-width: 20rem;
+  width: 100%;
+  padding-right: 2.5rem;
+}
+.eye .left-content::before, .eye .left-content::after {
+  content: "";
+  position: absolute;
+  margin-right: -2rem;
+}
+.eye .left-content::before {
+  background-color: var(--dark-gray);
+  width: 3.5rem;
+  right: 0;
+  height: 70%;
+}
+.eye .left-content::after {
+  background-color: var(--yellow);
+  top: 5rem;
+  right: -1rem;
+  width: 3rem;
+  height: 80%;
+}
+.eye .right-content .items {
+  gap: 1rem;
+}
+.eye .right-content .item {
+  gap: 2rem;
+}
+.eye .right-content .img img {
+  max-width: 3.5rem;
+}
+.eye .right-content p {
+  font-weight: 900;
+  font-size: 1.1rem;
+  max-width: 30rem;
+}
+.eye .boxs .box-1 {
+  width: 4rem;
+  height: 20rem;
+  background-color: #191927;
+}
+
+@media (min-width: 640px) {
+  .mission .right-content h2 {
+    font-size: 3rem;
+  }
+}
+@media (min-width: 768px) {
+  .container {
+    padding: 0 2rem;
+  }
+  /*---------------------------------------------------- 
+  Main Area
+  ----------------------------------------------------*/
+  main {
+    background-color: var(--light-gray);
+    padding-bottom: 2rem;
+  }
+  main::before {
+    display: block;
+    content: "";
+    position: absolute;
+    bottom: 2rem;
+    background-color: var(--light-yellow);
+    width: 15rem;
+    height: 8rem;
+    border-top-left-radius: 20px;
+    right: 0;
+    top: 4rem;
+  }
+  main .wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 4rem;
+  }
+  main .left-content .img {
+    position: relative;
+  }
+  main .left-content .img img {
+    position: inherit;
+  }
+  main .left-content .img::before {
+    content: "";
+    position: absolute;
+    bottom: 2rem;
+    background-color: var(--yellow);
+    width: 15rem;
+    height: 30rem;
+  }
+  main .right-content {
+    display: block;
+    margin-right: 39px;
+    position: relative;
+    padding-top: 2rem;
+  }
+  main .right-content .content {
+    position: relative;
+  }
+  main .right-content .main-logo img {
+    width: 13rem;
+  }
+  main .right-content p {
+    margin-top: 1rem;
+    font-size: 1.4rem;
+    font-weight: 400;
+  }
+  main .right-content h1 {
+    margin-top: 1rem;
+    margin-left: -7rem;
+    font-size: 5rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    color: var(--yellow);
+  }
+  main .right-content h1 span {
+    color: var(--dark-gray);
+  }
+  main .overflow-content {
+    display: none;
+  }
+  /*---------------------------------------------------- 
+  Service Area
+  ----------------------------------------------------*/
+  .service {
+    position: relative;
+    overflow: hidden;
+  }
+  .service::before {
+    content: "";
+    position: absolute;
+    bottom: 2rem;
+    background-color: var(--light-yellow);
+    transform: rotate(-40deg);
+    width: 20rem;
+    height: 15rem;
+    right: -4rem;
+    top: -4rem;
+  }
+  .service .service-2::before {
+    display: none;
+  }
+  /*---------------------------------------------------- 
+  Mission Area
+  ----------------------------------------------------*/
+  .mission .wrapper {
+    display: grid;
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+    justify-content: center;
+    align-items: center;
+    gap: 4rem;
+  }
+  .mission .left-content {
+    grid-column: span 4/span 4;
+    gap: 1rem;
+  }
+  .mission .left-content h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    display: block;
+  }
+  .mission .left-content p {
+    font-family: "Open Sans", sans-serif;
+    font-weight: 400;
+  }
+  .mission .right-content {
+    display: block;
+    grid-column: span 3/span 3;
+  }
+  .mission .right-content img {
+    max-width: 20rem;
+  }
+  .mission .right-content .heading {
+    display: none;
+  }
+  /*---------------------------------------------------- 
+  Mission Area
+  ----------------------------------------------------*/
+  .presentation .left-content {
+    display: block;
+  }
+}
+/*---------------------------------------------------- 
+Eye Area
+----------------------------------------------------*/
 .eye {
   position: relative;
-  overflow: hidden;
 }
 .eye::before, .eye::after {
   content: "";
@@ -390,10 +670,14 @@ Eye Area
   width: calc(50% - 6rem);
   height: 3rem;
   background-color: var(--yellow);
+  display: block;
 }
 .eye .wrapper {
   margin-top: 1rem;
   grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+.eye .left-content::before, .eye .left-content::after {
+  display: none;
 }
 .eye .left-content img {
   max-width: 20rem;
