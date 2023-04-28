@@ -252,6 +252,7 @@ Mission Area
 Social Area
 ----------------------------------------------------*/
 .social .wrapper {
+  display: none;
   grid-template-columns: repeat(7, minmax(0, 1fr));
   gap: 4rem;
   align-items: center;
@@ -328,6 +329,42 @@ Social Area
   position: relative;
   min-width: 100%;
 }
+.social .mobile p {
+  font-size: 1rem;
+  color: var(--dark-gray);
+  font-weight: 600;
+}
+.social .mobile .top {
+  padding: 1rem 2rem;
+  background-color: var(--light-gray);
+  text-align: end;
+}
+.social .mobile .middle {
+  display: flex;
+  justify-content: flex-end;
+  position: relative;
+}
+.social .mobile .middle::before {
+  content: "";
+  position: absolute;
+  bottom: 2rem;
+  background-color: var(--light-yellow);
+  width: 12rem;
+  height: 15rem;
+  -webkit-clip-path: polygon(12% 0, 0% 100%, 100% 45%);
+          clip-path: polygon(12% 0, 0% 100%, 100% 45%);
+  right: 0;
+  top: 0;
+  left: 0;
+  z-index: -10;
+}
+.social .mobile .middle img {
+  width: 100%;
+  padding-left: 1rem;
+}
+.social .mobile .bottom {
+  padding: 0 2rem;
+}
 
 /*---------------------------------------------------- 
 Phone Area
@@ -337,12 +374,13 @@ Phone Area
 }
 .phone .wrapper {
   gap: 2rem;
+  display: none;
 }
-.phone .left {
+.phone .wrapper .left {
   position: relative;
   width: 8rem;
 }
-.phone .left::after {
+.phone .wrapper .left::after {
   content: "";
   position: absolute;
   height: 15rem;
@@ -351,23 +389,23 @@ Phone Area
   border-top-right-radius: 20px;
   bottom: 0;
 }
-.phone p {
+.phone .wrapper p {
   color: var(--dark-gray);
   font-size: 1.4rem;
   font-weight: 600;
   max-width: 50rem;
 }
-.phone .img {
+.phone .wrapper .img {
   position: relative;
 }
-.phone img {
+.phone .wrapper img {
   width: 16rem;
   margin-left: 0rem;
 }
-.phone .phone-content {
+.phone .wrapper .phone-content {
   position: relative;
 }
-.phone .phone-content h4 {
+.phone .wrapper .phone-content h4 {
   text-transform: uppercase;
   color: var(--yellow);
   position: absolute;
@@ -379,18 +417,92 @@ Phone Area
   max-width: 35rem;
   left: -400px;
 }
+.phone .mobile {
+  gap: 2rem;
+}
+.phone .mobile .img-wrapper {
+  position: relative;
+}
+.phone .mobile .img-wrapper::before {
+  content: "";
+  position: absolute;
+  bottom: 2rem;
+  background-color: var(--yellow);
+  width: 10rem;
+  height: 10rem;
+  -webkit-clip-path: polygon(0 13%, 25% 100%, 100% 36%);
+          clip-path: polygon(0 13%, 25% 100%, 100% 36%);
+  right: 0;
+  top: 0;
+  left: 50%;
+  z-index: -10;
+}
+.phone .mobile img {
+  max-width: 10rem;
+  width: 100%;
+  transform: rotate(-30deg);
+  position: relative;
+}
+.phone .mobile .phone-content {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  justify-content: end;
+  align-items: end;
+  gap: 2rem;
+}
+.phone .mobile .phone-content h4 {
+  text-transform: uppercase;
+  color: var(--yellow);
+  background-color: var(--dark-gray);
+  padding: 1rem;
+  border-radius: 15px;
+  bottom: 2rem;
+  font-size: 1rem;
+  max-width: 35rem;
+  margin-bottom: 2rem;
+}
 
 /*---------------------------------------------------- 
 Presentation Area
 ----------------------------------------------------*/
 .presentation .wrapper {
+  display: none;
   grid-template-columns: repeat(7, minmax(0, 1fr));
   gap: 2rem;
   align-items: center;
   justify-content: center;
 }
+.presentation h2 {
+  grid-column: span 3/span 3;
+  text-transform: uppercase;
+  font-size: 3.5rem;
+  font-weight: bold;
+  color: var(--dark-gray);
+}
+.presentation h2 span {
+  color: var(--yellow);
+}
+.presentation .paras {
+  grid-column: span 4/span 4;
+  gap: 1rem;
+}
+.presentation .paras .para {
+  gap: 0.3rem;
+}
+.presentation .paras .para h3 {
+  color: var(--yellow);
+  font-size: 2rem;
+}
+.presentation .paras .para h4 {
+  color: var(--dark-gray);
+  font-size: 2rem;
+  text-transform: uppercase;
+}
+.presentation .paras .para p {
+  color: var(--dark-gray);
+  font-weight: 500;
+  font-size: 0.9rem;
+}
 .presentation .left-content {
-  display: none;
   grid-column: span 2/span 2;
 }
 .presentation .left-content img {
@@ -417,36 +529,34 @@ Presentation Area
   align-items: center;
   gap: 2rem;
 }
-.presentation .right-content .paras {
-  grid-column: span 4/span 4;
-  gap: 1rem;
+.presentation .mobile {
+  padding: 2.5rem 0;
+  background-image: url("./images/section-bg.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
-.presentation .right-content .para {
-  gap: 0.3rem;
+.presentation .mobile .top-content {
+  gap: 2rem;
 }
-.presentation .right-content .para h3 {
-  color: var(--yellow);
+.presentation .mobile .top-content img {
+  width: 100%;
+  max-width: 10rem;
+}
+.presentation .mobile .top-content h2 {
   font-size: 2rem;
 }
-.presentation .right-content .para h4 {
+.presentation .mobile .top-content p {
+  margin-top: 1rem;
   color: var(--dark-gray);
-  font-size: 2rem;
-  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 1.1rem;
 }
-.presentation .right-content .para p {
-  color: var(--dark-gray);
-  font-weight: 500;
-  font-size: 0.9rem;
+.presentation .mobile .bottom-content {
+  margin-top: 3rem;
 }
-.presentation .right-content h2 {
-  grid-column: span 3/span 3;
-  text-transform: uppercase;
-  font-size: 3.5rem;
-  font-weight: bold;
-  color: var(--dark-gray);
-}
-.presentation .right-content h2 span {
-  color: var(--yellow);
+.presentation .mobile .bottom-content h4 {
+  font-size: 1.5rem;
 }
 
 /*---------------------------------------------------- 
@@ -504,6 +614,17 @@ Eye Area
   background-color: #191927;
 }
 
+@media (min-width: 400px) {
+  .presentation .mobile img {
+    width: 100%;
+  }
+  .presentation .mobile .top-content {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .presentation .mobile .bottom-content h4 {
+    font-size: 2rem;
+  }
+}
 @media (min-width: 640px) {
   .mission .right-content h2 {
     font-size: 3rem;
@@ -604,6 +725,12 @@ Eye Area
     display: none;
   }
   /*---------------------------------------------------- 
+  Social Area
+  ----------------------------------------------------*/
+  .social .wrapper {
+    display: grid;
+  }
+  /*---------------------------------------------------- 
   Mission Area
   ----------------------------------------------------*/
   .mission .wrapper {
@@ -637,74 +764,76 @@ Eye Area
     display: none;
   }
   /*---------------------------------------------------- 
-  Mission Area
+  Presentation Area
   ----------------------------------------------------*/
-  .presentation .left-content {
+  .presentation .wrapper {
+    display: grid;
+  }
+  .presentation .mobile {
+    display: none;
+  }
+  /*---------------------------------------------------- 
+  Eye Area
+  ----------------------------------------------------*/
+  .eye {
+    position: relative;
+  }
+  .eye::before, .eye::after {
+    content: "";
+    position: absolute;
+  }
+  .eye::before {
+    background-color: var(--dark-gray);
+    width: 6rem;
+    right: 0;
+    height: 80%;
+  }
+  .eye::after {
+    background-color: var(--yellow);
+    top: 7rem;
+    right: -1rem;
+    width: 4rem;
+    height: 100%;
+  }
+  .eye .rectangle {
+    width: calc(50% - 6rem);
+    height: 3rem;
+    background-color: var(--yellow);
     display: block;
   }
+  .eye .wrapper {
+    margin-top: 1rem;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .eye .left-content::before, .eye .left-content::after {
+    display: none;
+  }
+  .eye .left-content img {
+    max-width: 20rem;
+  }
+  .eye .right-content {
+    margin-right: 6rem;
+  }
+  .eye .right-content .items {
+    gap: 1rem;
+  }
+  .eye .right-content .item {
+    gap: 2rem;
+  }
+  .eye .right-content .img img {
+    max-width: 3.5rem;
+  }
+  .eye .right-content p {
+    font-weight: 900;
+    font-size: 1.1rem;
+    max-width: 30rem;
+  }
+  .eye .boxs .box-1 {
+    width: 4rem;
+    height: 20rem;
+    background-color: #191927;
+  }
 }
-/*---------------------------------------------------- 
-Eye Area
-----------------------------------------------------*/
-.eye {
-  position: relative;
-}
-.eye::before, .eye::after {
-  content: "";
-  position: absolute;
-}
-.eye::before {
-  background-color: var(--dark-gray);
-  width: 6rem;
-  right: 0;
-  height: 80%;
-}
-.eye::after {
-  background-color: var(--yellow);
-  top: 7rem;
-  right: -1rem;
-  width: 4rem;
-  height: 100%;
-}
-.eye .rectangle {
-  width: calc(50% - 6rem);
-  height: 3rem;
-  background-color: var(--yellow);
-  display: block;
-}
-.eye .wrapper {
-  margin-top: 1rem;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-}
-.eye .left-content::before, .eye .left-content::after {
-  display: none;
-}
-.eye .left-content img {
-  max-width: 20rem;
-}
-.eye .right-content {
-  margin-right: 6rem;
-}
-.eye .right-content .items {
-  gap: 1rem;
-}
-.eye .right-content .item {
-  gap: 2rem;
-}
-.eye .right-content .img img {
-  max-width: 3.5rem;
-}
-.eye .right-content p {
-  font-weight: 900;
-  font-size: 1.1rem;
-  max-width: 30rem;
-}
-.eye .boxs .box-1 {
-  width: 4rem;
-  height: 20rem;
-  background-color: #191927;
-}
-
 @media (min-width: 1280px) {
   .service .item .img .line {
     display: block;
